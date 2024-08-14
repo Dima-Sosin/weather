@@ -5,14 +5,40 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:react-hooks/recommended',
+    "plugin:react-hooks/recommended"
   ],
-  ignorePatterns: ['dist', '.eslintrc.cjs'],
+  ignorePatterns: [
+    "dist",
+    ".eslintrc.cjs",
+    "vite.config.js",
+    "package.json",
+    "package-lock.json"
+  ],
   parser: '@typescript-eslint/parser',
-  plugins: ['react-refresh'],
+  plugins: ['react-refresh', "simple-import-sort"],
   rules: {
-    'react-refresh/only-export-components': [
-      'warn',
-      { allowConstantExport: true },
-    ],
+    "react/jsx-no-target-blank": "off",
+    "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
+    "react/prop-types": "off"
   },
+  overrides: [
+    {
+      files: ["*.js", "*.jsx", "*.ts", "*.tsx"],
+      rules: {
+        "simple-import-sort/exports": "error",
+        "simple-import-sort/imports": [
+          "error",
+          {
+            groups: [
+              ["^.+\\.?(css)$"],
+              ["^react", "^\\w"],
+              ["^@\\w"],
+              ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+              ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"]
+            ]
+          }
+        ]
+      }
+    }
+  ]
 }
