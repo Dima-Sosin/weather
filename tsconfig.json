@@ -24,12 +24,12 @@
         "baseUrl": ".",
         "paths": {
             "@/*": ["src/*"],
-            "@api": ["src/api/api"],
+            "@api/*": ["/src/api/*"],
             "@assets/*": ["src/assets/*"],
             "@store/*": ["src/store/*"],
             "@components/*": ["src/components/*"]
         }
     },
-    "include": ["src"],
+    "include": ["*.js", "**/*.ts", "**/*.tsx"],
     "references": [{ "path": "./tsconfig.node.json" }]
 }

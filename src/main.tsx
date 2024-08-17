@@ -1,4 +1,6 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
 
-ReactDOM.createRoot(document.getElementById("root")!).render(<></>)
+import { App } from "./App.tsx"
+
+ReactDOM.createRoot(document.getElementById("root")!).render(<App />)
