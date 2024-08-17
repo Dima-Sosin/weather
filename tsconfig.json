@@ -27,7 +27,8 @@
             "@api/*": ["/src/api/*"],
             "@assets/*": ["src/assets/*"],
             "@store/*": ["src/store/*"],
-            "@components/*": ["src/components/*"]
+            "@components/*": ["src/components/*"],
+            "@helpers/*": ["src/helpers/*"]
         }
     },
     "include": ["*.js", "**/*.ts", "**/*.tsx"],

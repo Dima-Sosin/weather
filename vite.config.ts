@@ -12,7 +12,8 @@ export default defineConfig({
             "@api": path.resolve(__dirname, "./src/api"),
             "@assets": path.resolve(__dirname, "./src/assets"),
             "@store": path.resolve(__dirname, "./src/store"),
-            "@components": path.resolve(__dirname, "./src/components")
+            "@components": path.resolve(__dirname, "./src/components"),
+            "@helpers": path.resolve(__dirname, "./src/helpers")
         }
     }
 })
