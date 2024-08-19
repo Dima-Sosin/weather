@@ -6,6 +6,7 @@ import * as api from "@api/requests/index.ts"
 import { Current } from "@components/Current/Current.tsx"
 import { Forecast } from "@components/Forecast/Forecast.tsx"
 import { Info } from "@components/Info/Info.tsx"
+import { Preloader } from "@components/Preloader/Preloader.tsx"
 
 export const App = () => {
     const [data, setData] = useState()
@@ -27,7 +28,7 @@ export const App = () => {
     return (
         <div className="scrollbar-hide w-dvw h-dvh overflow-x-hidden overflow-y-scroll bg-gradient-to-r from-sky-500 to-blue-500 dark:from-[#0f0c29] dark:to-[#24243e]">
             {isLoading ? (
-                <div>Loading...</div>
+                <Preloader />
             ) : (
                 <div className="p-2 sm:p-4 dark:text-white">
                     <Current
