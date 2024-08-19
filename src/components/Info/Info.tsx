@@ -7,6 +7,7 @@ import { ThermostatIcon } from "@assets/ThermostatIcon.tsx"
 import { VisibilityIcon } from "@assets/VisibilityIcon.tsx"
 import { WaterDrop } from "@assets/WaterDropIcon.tsx"
 import { WindDirectionIcon } from "@assets/WIndDirectionIcon.tsx"
+import { windDireciton } from "@helpers/windDireciton.tsx"
 
 export const Info = ({ current }) => (
     <table className="flex flex-col mt-4 p-2 rounded-2xl bg-black/[.09] dark:bg-white/[.09]">
@@ -33,7 +34,7 @@ export const Info = ({ current }) => (
                 <td className="el">
                     <WindDirectionIcon />
                     <p>Направление ветра</p>
-                    {current.wind_degree}°
+                    {windDireciton(current.wind_degree)}
                 </td>
             </tr>
             <tr className="w-full flex p-2">
