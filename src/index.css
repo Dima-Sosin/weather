@@ -2,16 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+    .el {
+        display: flex;
+        width: 50%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        & p {
+            text-align: center;
+            font-size: 12px;
+        }
+    }
+}
+
 @layer utilities {
     .scrollbar-hide {
         -ms-overflow-style: none;
-        /* IE and Edge */
         scrollbar-width: none;
-        /* Firefox */
     }
 
     .scrollbar-hide::-webkit-scrollbar {
         display: none;
-        /* Chrome, Safari and Opera */
     }
 }
