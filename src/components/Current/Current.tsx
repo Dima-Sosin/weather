@@ -7,7 +7,11 @@ import { Icons } from "@/helpers/icons.ts"
 export const Current = ({ current, hours, temp }) => {
     const currentDate = new Date()
     const content = []
-    for (let i = currentDate.getHours(); i < hours.length-(24-currentDate.getHours()); i++) {
+    for (
+        let i = currentDate.getHours();
+        i < hours.length - (24 - currentDate.getHours());
+        i++
+    ) {
         content.push(
             <li
                 className="flex flex-col p-2 items-center justify-between gap-2 mx-1.5"
