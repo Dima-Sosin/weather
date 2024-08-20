@@ -3,6 +3,7 @@ import "./index.css"
 import { useEffect, useState } from "react"
 
 import * as api from "@api/requests/index.ts"
+import { Astro } from "@components/Astro/Astro.tsx"
 import { Current } from "@components/Current/Current.tsx"
 import { Forecast } from "@components/Forecast/Forecast.tsx"
 import { Info } from "@components/Info/Info.tsx"
@@ -42,6 +43,7 @@ export const App = () => {
                     />
                     <Forecast forecastdays={data.forecast.forecastday} />
                     <Info current={data.current} />
+                    <Astro astro={data.forecast.forecastday[0].astro} />
                 </div>
             )}
         </div>

@@ -1,6 +1,6 @@
 import "../../index.css"
 
-import { getTime } from "@helpers/date.ts"
+import { getHour } from "@helpers/date.ts"
 
 import { Icons } from "@/helpers/icons.ts"
 
@@ -13,7 +13,7 @@ export const Current = ({ location, current, hours, temp }) => {
                 className="flex flex-col p-2 items-center justify-between gap-2 mx-1.5"
                 key={i}
             >
-                <h3 className="text-center">{getTime(hours[i].time)}:00</h3>
+                <h3 className="text-center">{getHour(hours[i].time)}:00</h3>
                 <div>
                     <img
                         className="w-6 h-6"
