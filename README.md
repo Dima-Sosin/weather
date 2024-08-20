@@ -1,30 +1,37 @@
-# React + TypeScript + Vite
+# Weather
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Проект реализует полноценное web-приложение сайта погоды, и полностью имитирует все его основные функции. На сайте можно просмотреть текущую погоду, увидеть погоду на ближайшие 24часа с интервалом в час. Далее можно посмотреть прогноз погоды на следующие 2 недели, с интервалом в день, в каждом дне можно будет кратко посмотреть максимальную и минимальную температуру за день. Далее есть раздел с полезной информацией о дне, такой как влажность, облачность и тп. И последним разделом на главной странице расположен астрономический, в нем содержится основная информация о восходе и закате солнца и луны и тп.
 
-Currently, two official plugins are available:
+### Основной стек технологий:
+* Фреймворк (библиотека) - [React](https://react.dev/) + [TypeScript](https://www.npmjs.com/package/typescript)
+* Сборщик приложения - [Vite](https://vitejs.dev/)
+* Чистота кода - [Prettier](https://prettier.io/) + [ESLint](https://eslint.org/) + [Husky](https://www.npmjs.com/package/husky) + [Lint Staged](https://www.npmjs.com/package/lint-staged)
+* Стилизация - [Tailwind](https://tailwindcss.ru/)
+* Маршрутизация - [TanStack Router](https://tanstack.com/router/latest)
+* Получение данных с сервера - [Axios](https://axios-http.com/)
+* State-manager - [Zustand](https://www.npmjs.com/package/zustand)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Этот проект реализует frontend часть web-приложения сайта погоды, данные для вывода берутся из backend-а [WeatherApi](https://www.weatherapi.com/).
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### На данный момент реализовано:
 
-- Configure the top-level `parserOptions` property like this:
+-   **Текущая погода** - раздел с температурой и состоянием погоды (ясно/дождь/...);
+-   **Прогноз на 24 часа** - раздел с погодой и температурой на каждый час;
+-   **Прогноз на 14 дней** - раздел с погодой, а также мин и макс температурой на каждый день;
+-   **Полезная информация** - раздел с дополнительной информацией на текущий момент: облачность, влажность, кол-во осадков, видимость, скорость и направление ветра и тп);
+-   **Восходы и закаты** - раздел с информацией о восходе и закате солнца и луны, а также о фазе и видимости луны.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+Приложение разрабатывалось по технологии mobile-first, но также адаптировано под остальные устройства: планшеты, ноутбуки, пк.
+___
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+|                                    Страница "Каталог"                                     |                              Страница "Модальное окно пиццы"                             |
+|:-----------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------:|
+|||
+|                       **"Корзина", страница с выбранными пиццами**                        |                        **"Корзина", страница персональных данных**                       |
+|||
+|                         **"Корзина", страница банковской карты**                          |                                  **Страница "Профиль"**                                  |
+|||
+|                         **"Заказы", страница со списком товаров**                         |                         **"Заказы", страница конкретного заказа**                        |
+|||
