@@ -4,10 +4,10 @@ import { getHour } from "@helpers/date.ts"
 
 import { Icons } from "@/helpers/icons.ts"
 
-export const Current = ({ location, current, hours, temp }) => {
+export const Current = ({ current, hours, temp }) => {
     const currentDate = new Date()
     const content = []
-    for (let i = currentDate.getHours(); i < hours.length; i++) {
+    for (let i = currentDate.getHours(); i < hours.length-(24-currentDate.getHours()); i++) {
         content.push(
             <li
                 className="flex flex-col p-2 items-center justify-between gap-2 mx-1.5"
@@ -38,7 +38,6 @@ export const Current = ({ location, current, hours, temp }) => {
 
     return (
         <div className="flex-col mb-4 overflow-hidden">
-            <h1 className="text-5xl text-center">{location.name}</h1>
             <h2 className="text-center text-xl">Сегодня</h2>
 
             <div className="my-32">

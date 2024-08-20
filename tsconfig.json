@@ -26,9 +26,10 @@
             "@/*": ["src/*"],
             "@api/*": ["/src/api/*"],
             "@assets/*": ["src/assets/*"],
-            "@store/*": ["src/store/*"],
             "@components/*": ["src/components/*"],
-            "@helpers/*": ["src/helpers/*"]
+            "@helpers/*": ["src/helpers/*"],
+            "@pages/*": ["src/pages/*"],
+            "@store/*": ["src/store/*"],
         }
     },
     "include": ["*.js", "**/*.ts", "**/*.tsx"],
