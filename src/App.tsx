@@ -42,7 +42,7 @@ export const App = () => {
                         }}
                     />
                     <Forecast forecastdays={data.forecast.forecastday} />
-                    <Info current={data.current} />
+                    <Info info={data.current} />
                     <Astro astro={data.forecast.forecastday[0].astro} />
                 </div>
             )}

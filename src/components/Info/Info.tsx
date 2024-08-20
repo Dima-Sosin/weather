@@ -10,7 +10,7 @@ import { WaterDrop } from "@assets/WaterDropIcon.tsx"
 import { WindDirectionIcon } from "@assets/WIndDirectionIcon.tsx"
 import { windDireciton } from "@helpers/windDireciton.tsx"
 
-export const Info = ({ current }) => (
+export const Info = ({ info }) => (
     <table className="flex flex-col mt-4 p-2 rounded-2xl bg-black/[.09] dark:bg-white/[.09]">
         <caption className="mb-1">Полезная информация</caption>
         <tbody>
@@ -18,58 +18,60 @@ export const Info = ({ current }) => (
                 <td className="el">
                     <WaterDrop />
                     <p>Влажность</p>
-                    {current.humidity} %
+                    {info.humidity} %
                 </td>
                 <td className="el">
-                    <ThermostatIcon />
-                    <p>Ощущение</p>
-                    {current.feelslike_c}°C
+                    <PrecipIcon />
+                    <p>Осадки</p>
+                    {info.precip_mm} мм
                 </td>
             </tr>
             <tr className="w-full flex p-2">
                 <td className="el">
                     <AirIcon />
                     <p>Скорость ветра</p>
-                    {(current.wind_kph / 3.6).toFixed(1)} м/c
+                    {(info.wind_kph / 3.6).toFixed(1)} м/c
                 </td>
                 <td className="el">
                     <WindDirectionIcon />
                     <p>Направление ветра</p>
-                    {windDireciton(current.wind_degree)}
+                    {windDireciton(info.wind_degree)}
                 </td>
             </tr>
             <tr className="w-full flex p-2">
                 <td className="el">
                     <div className="text-white text-base/[24px]">UV</div>
                     <p>Индекс УФ</p>
-                    {current.uv}
+                    {info.uv}
                 </td>
                 <td className="el">
                     <PressureIcon />
                     <p>Давление</p>
-                    {current.pressure_mb} гПа
+                    {info.pressure_mb} гПа
                 </td>
             </tr>
             <tr className="w-full flex p-2">
                 <td className="el">
                     <CloudIcon />
                     <p>Облачность</p>
-                    {current.cloud} %
+                    {info.cloud} %
                 </td>
                 <td className="el">
                     <VisibilityIcon />
                     <p>Видимость</p>
-                    {current.vis_km} км
+                    {info.vis_km} км
                 </td>
             </tr>
-            <tr className="w-full flex p-2">
-                <td className="el">
-                    <PrecipIcon />
-                    <p>Осадки</p>
-                    {current.precip_mm} мм
-                </td>
-                <td className="el"></td>
-            </tr>
+            {!!info.feelslike_c && (
+                <tr className="w-full flex p-2">
+                    <td className="el">
+                        <ThermostatIcon />
+                        <p>Ощущение</p>
+                        {info.feelslike_c}°C
+                    </td>
+                    <td className="el"></td>
+                </tr>
+            )}
         </tbody>
     </table>
 )

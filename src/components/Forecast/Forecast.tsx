@@ -21,12 +21,12 @@ export const Forecast = ({ forecastdays }) => (
                         src={`src/assets/day/${Icons[day.day.condition.code]}.svg`}
                         alt={`Значок погоды: ${day.day.condition.text}`}
                     />
-                    {day.day.daily_will_it_rain === 1 && (
+                    {day.day.daily_chance_of_rain > 0 && (
                         <p className="text-xs text-center">
                             {day.day.daily_chance_of_rain}%
                         </p>
                     )}
-                    {day.day.daily_will_it_snow === 1 && (
+                    {day.day.daily_chance_of_snow > 0 && (
                         <p className="text-xs text-center">
                             {day.day.daily_chance_of_snow}%
                         </p>

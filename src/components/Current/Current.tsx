@@ -20,12 +20,12 @@ export const Current = ({ location, current, hours, temp }) => {
                         src={`src/assets/${hours[i].is_day === 1 ? "day" : "night"}/${Icons[hours[i].condition.code]}.svg`}
                         alt={`Значок погоды: ${hours[i].condition.text}`}
                     />
-                    {hours[i].will_it_rain === 1 && (
+                    {hours[i].chance_of_rain > 0 && (
                         <p className="text-xs text-center">
                             {hours[i].chance_of_rain}%
                         </p>
                     )}
-                    {hours[i].will_it_snow === 1 && (
+                    {hours[i].chance_of_snow > 0 && (
                         <p className="text-xs text-center">
                             {hours[i].chance_of_snow}%
                         </p>
