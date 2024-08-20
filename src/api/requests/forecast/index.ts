@@ -9,4 +9,4 @@ export interface GetForecastParams {
 export type GetForecastConfig = AxiosRequestConfig<GetForecastParams>
 
 export const getForecast = async ({ params, config }: GetForecastConfig) =>
-    api.get("forecast.json", { params: params, config: config }).then((response) => response)
+    api.get("forecast.json", { params: params, config: config })
