@@ -2,6 +2,7 @@ import "../../index.css"
 
 import { AirIcon } from "@assets/AirIcon.tsx"
 import { CloudIcon } from "@assets/CloudIcon.tsx"
+import { PrecipIcon } from "@assets/PrecipIcon.tsx"
 import { PressureIcon } from "@assets/PressureIcon.tsx"
 import { ThermostatIcon } from "@assets/ThermostatIcon.tsx"
 import { VisibilityIcon } from "@assets/VisibilityIcon.tsx"
@@ -60,6 +61,14 @@ export const Info = ({ current }) => (
                     <p>Видимость</p>
                     {current.vis_km} км
                 </td>
+            </tr>
+            <tr className="w-full flex p-2">
+                <td className="el">
+                    <PrecipIcon />
+                    <p>Осадки</p>
+                    {current.precip_mm} мм
+                </td>
+                <td className="el"></td>
             </tr>
         </tbody>
     </table>
