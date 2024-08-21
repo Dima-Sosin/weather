@@ -14,7 +14,7 @@ export const Current = ({ current, hours, temp }) => {
     ) {
         content.push(
             <li
-                className="flex flex-col p-2 items-center justify-between gap-2 mx-1.5"
+                className="flex flex-col p-4 items-center justify-between gap-2"
                 key={i}
             >
                 <h3 className="text-center">{getHour(hours[i].time)}:00</h3>
@@ -42,7 +42,7 @@ export const Current = ({ current, hours, temp }) => {
 
     return (
         <div className="flex-col mb-4 overflow-hidden">
-            <h2 className="text-center text-xl">Сегодня</h2>
+            <h2 className="text-center text-xl mt-2">Сегодня</h2>
 
             <div className="my-32">
                 <div className="flex items-center justify-center gap-2">
@@ -52,7 +52,7 @@ export const Current = ({ current, hours, temp }) => {
                     </h2>
                     <img
                         className="w-18 h-18"
-                        src={`src/assets/${current.is_day === 1 ? "day" : "night"}/${Icons[current.condition.code]}.svg`}
+                        src={`/src/assets/${current.is_day === 0 ? "night" : "day"}/${Icons[current.condition.code]}.svg`}
                         alt={`Значок погоды: ${current.condition.text}`}
                     />
                 </div>
@@ -61,7 +61,6 @@ export const Current = ({ current, hours, temp }) => {
                 </p>
                 <p className="text-2xl text-center">{current.condition.text}</p>
             </div>
-
             <ul className="scrollbar-hide flex mt-4 overflow-scroll rounded-2xl bg-black/[.09] dark:bg-white/[.09]">
                 {content}
             </ul>

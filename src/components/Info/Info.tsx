@@ -11,8 +11,7 @@ import { WindDirectionIcon } from "@assets/WIndDirectionIcon.tsx"
 import { windDireciton } from "@helpers/windDireciton.tsx"
 
 export const Info = ({ info }) => (
-    <table className="flex flex-col mt-4 p-2 rounded-2xl bg-black/[.09] dark:bg-white/[.09]">
-        <caption className="mb-1">Полезная информация</caption>
+    <table className="flex flex-col p-2 rounded-2xl bg-black/[.09] dark:bg-white/[.09]">
         <tbody>
             <tr className="w-full flex p-2">
                 <td className="el">

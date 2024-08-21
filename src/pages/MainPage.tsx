@@ -31,7 +31,6 @@ export const MainPage = () => {
     ) : (
         <>
             <Current
-                location={data.location}
                 current={data.current}
                 hours={data.forecast.forecastday[0].hour.concat(
                     data.forecast.forecastday[1].hour
@@ -42,7 +41,9 @@ export const MainPage = () => {
                 }}
             />
             <Forecast forecastdays={data.forecast.forecastday} />
+            <h2 className="text-center text-xl mt-4">Полезная информация</h2>
             <Info info={data.current} />
+            <h2 className="text-center text-xl mt-4">Восходы и закаты</h2>
             <Astro astro={data.forecast.forecastday[0].astro} />
         </>
     )
