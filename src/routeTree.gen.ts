@@ -22,7 +22,7 @@ const IndexLazyImport = createFileRoute("/")()
 // Create/Update Routes
 
 const DateLazyRoute = DateLazyImport.update({
-    path: "/date/$date",
+    path: "/date",
     getParentRoute: () => rootRoute
 } as any).lazy(() => import("./routes/date.lazy").then((d) => d.Route))
 
