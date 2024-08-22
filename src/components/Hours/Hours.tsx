@@ -12,7 +12,6 @@ export const Hours = ({ hours }) => {
     }
     return (
         <ul>
-            <h2 className="text-center text-xl">Прогноз по часам:</h2>
             {hours.map((hour, i) => (
                 <li
                     className="flex flex-col mb-4 pt-2 rounded-2xl shadow-2xl"

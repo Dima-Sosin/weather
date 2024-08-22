@@ -2,22 +2,17 @@ import "../../index.css"
 
 import { getDate, getWeekDay } from "@helpers/date.ts"
 import { Icons } from "@helpers/icons.ts"
-import { useDay } from "@store/store.tsx"
 import { useNavigate } from "@tanstack/react-router"
 
 export const Forecast = ({ forecastdays }) => {
     const nav = useNavigate({ from: "/" })
-    const addDay = useDay((state) => state.addDay)
     return (
         <ul className="scrollbar-hide flex overflow-scroll rounded-2xl bg-black/[.09] dark:bg-white/[.09]">
             {forecastdays?.map((day, i) => (
                 <li
                     className="flex flex-col p-4 items-center justify-between gap-2 hover:cursor-pointer active:shadow-2xl"
                     key={i}
-                    onClick={() => {
-                        addDay(day)
-                        nav({ to: `/date/${day.date}` })
-                    }}
+                    onClick={() => nav({ to: `/${day.date}` })}
                 >
                     <div>
                         <h3 className="text-center">{getWeekDay(day.date)}</h3>

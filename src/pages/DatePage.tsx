@@ -2,18 +2,14 @@ import "../index.css"
 
 import { Astro } from "@components/Astro/Astro.tsx"
 import { Hours } from "@components/Hours/Hours.tsx"
-import { Preloader } from "@components/Preloader/Preloader.tsx"
 import { getDate } from "@helpers/date.ts"
 import { Icons } from "@helpers/icons.ts"
-import { useDay } from "@store/store.tsx"
+import { useLoaderData } from "@tanstack/react-router"
 
 export const DatePage = () => {
-    const day = useDay((state) => state.day)
-    console.log(day)
-    return !day ? (
-        <Preloader />
-    ) : (
-        <div className="flex-col mb-4">
+    const day = useLoaderData({ from: "/$date" }).forecast.forecastday[0]
+    return (
+        <div id="page" className="flex-col mb-4">
             <h2 className="text-center text-xl mt-2">{getDate(day.date)}</h2>
 
             <div className="my-32">
@@ -34,8 +30,9 @@ export const DatePage = () => {
                 <p className="text-2xl text-center">{day.day.condition.text}</p>
             </div>
 
+            <h2 className="text-center text-xl">Прогноз по часам:</h2>
             <Hours hours={day.hour} />
-            <h2 className="text-center text-xl">Восходы и закаты</h2>
+            <h2 className="text-center text-xl mt-4">Восходы и закаты</h2>
             <Astro astro={day.astro} />
         </div>
     )

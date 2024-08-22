@@ -13,18 +13,18 @@ import { createFileRoute } from "@tanstack/react-router"
 // Import Routes
 
 import { Route as rootRoute } from "./routes/__root"
+import { Route as DateImport } from "./routes/$date"
 
 // Create Virtual Routes
 
-const DateLazyImport = createFileRoute("/date")()
 const IndexLazyImport = createFileRoute("/")()
 
 // Create/Update Routes
 
-const DateLazyRoute = DateLazyImport.update({
-    path: "/date",
+const DateRoute = DateImport.update({
+    path: "/$date",
     getParentRoute: () => rootRoute
-} as any).lazy(() => import("./routes/date.lazy").then((d) => d.Route))
+} as any)
 
 const IndexLazyRoute = IndexLazyImport.update({
     path: "/",
@@ -42,11 +42,11 @@ declare module "@tanstack/react-router" {
             preLoaderRoute: typeof IndexLazyImport
             parentRoute: typeof rootRoute
         }
-        "/date": {
-            id: "/date"
-            path: "/date"
-            fullPath: "/date"
-            preLoaderRoute: typeof DateLazyImport
+        "/$date": {
+            id: "/$date"
+            path: "/$date"
+            fullPath: "/$date"
+            preLoaderRoute: typeof DateImport
             parentRoute: typeof rootRoute
         }
     }
@@ -54,10 +54,7 @@ declare module "@tanstack/react-router" {
 
 // Create and export the route tree
 
-export const routeTree = rootRoute.addChildren({
-    IndexLazyRoute,
-    DateLazyRoute
-})
+export const routeTree = rootRoute.addChildren({ IndexLazyRoute, DateRoute })
 
 /* prettier-ignore-end */
 
@@ -68,14 +65,14 @@ export const routeTree = rootRoute.addChildren({
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/date"
+        "/$date"
       ]
     },
     "/": {
       "filePath": "index.lazy.tsx"
     },
-    "/date": {
-      "filePath": "date.lazy.tsx"
+    "/$date": {
+      "filePath": "$date.tsx"
     }
   }
 }
