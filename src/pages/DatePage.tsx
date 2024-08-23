@@ -2,15 +2,17 @@ import "../index.css"
 
 import { Astro } from "@components/Astro/Astro.tsx"
 import { Hours } from "@components/Hours/Hours.tsx"
-import { getDate } from "@helpers/date.ts"
+import { getFullDate } from "@helpers/date.ts"
 import { Icons } from "@helpers/icons.ts"
 import { useLoaderData } from "@tanstack/react-router"
 
 export const DatePage = () => {
     const day = useLoaderData({ from: "/$date" }).forecast.forecastday[0]
     return (
-        <div id="page" className="flex-col mb-4">
-            <h2 className="text-center text-xl mt-2">{getDate(day.date)}</h2>
+        <div id="page" className="flex flex-col sm:items-center w-full">
+            <h2 className="text-center text-xl mt-2">
+                {getFullDate(day.date)}
+            </h2>
 
             <div className="my-32">
                 <div className="flex items-center justify-center gap-2">
@@ -29,11 +31,18 @@ export const DatePage = () => {
                 </p>
                 <p className="text-2xl text-center">{day.day.condition.text}</p>
             </div>
-
-            <h2 className="text-center text-xl">Прогноз по часам:</h2>
-            <Hours hours={day.hour} />
-            <h2 className="text-center text-xl mt-4">Восходы и закаты</h2>
-            <Astro astro={day.astro} />
+            <div className="flex flex-col w-full lg:flex-row">
+                <div className="flex flex-col items-center lg:w-1/2">
+                    <h2 className="text-center text-xl">Прогноз по часам:</h2>
+                    <Hours hours={day.hour} />
+                </div>
+                <div className="flex flex-col items-center lg:w-1/2 ">
+                    <h2 className="text-center text-xl mt-4 lg:mt-0">
+                        Восходы и закаты
+                    </h2>
+                    <Astro astro={day.astro} />
+                </div>
+            </div>
         </div>
     )
 }

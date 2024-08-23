@@ -16,7 +16,7 @@ export const MainPage = () => {
     }
 
     return (
-        <>
+        <div className="flex flex-col w-full">
             <Current
                 current={data.current}
                 hours={data.forecast.forecastday[0].hour.concat(
@@ -28,10 +28,20 @@ export const MainPage = () => {
                 }}
             />
             <Forecast forecastdays={data.forecast.forecastday} />
-            <h2 className="text-center text-xl mt-4">Полезная информация</h2>
-            <Info info={data.current} />
-            <h2 className="text-center text-xl mt-4">Восходы и закаты</h2>
-            <Astro astro={data.forecast.forecastday[0].astro} />
-        </>
+            <div className="flex flex-col w-full lg:flex-row">
+                <div className="flex flex-col items-center lg:w-1/2">
+                    <h2 className="text-center text-xl mt-4">
+                        Полезная информация
+                    </h2>
+                    <Info info={data.current} />
+                </div>
+                <div className="flex flex-col items-center lg:w-1/2">
+                    <h2 className="text-center text-xl mt-4">
+                        Восходы и закаты
+                    </h2>
+                    <Astro astro={data.forecast.forecastday[0].astro} />
+                </div>
+            </div>
+        </div>
     )
 }

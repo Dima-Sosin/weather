@@ -7,10 +7,10 @@ import { useNavigate } from "@tanstack/react-router"
 export const Forecast = ({ forecastdays }) => {
     const nav = useNavigate({ from: "/" })
     return (
-        <ul className="scrollbar-hide flex overflow-scroll rounded-2xl bg-black/[.09] dark:bg-white/[.09]">
+        <ul className="scrollbar-hide flex overflow-x-auto rounded-2xl bg-black/[.09] dark:bg-white/[.09]">
             {forecastdays?.map((day, i) => (
                 <li
-                    className="flex flex-col p-4 items-center justify-between gap-2 hover:cursor-pointer active:shadow-2xl"
+                    className="flex flex-col p-4 items-center justify-between gap-2 hover:cursor-pointer hover:shadow-xl"
                     key={i}
                     onClick={() => nav({ to: `/${day.date}` })}
                 >
@@ -39,9 +39,10 @@ export const Forecast = ({ forecastdays }) => {
                         )}
                     </div>
 
-                    <p className="text-center">
-                        {day.day.maxtemp_c} {day.day.mintemp_c}
-                    </p>
+                    <div>
+                        <p className="text-center">{day.day.maxtemp_c}</p>
+                        <p className="text-center">{day.day.mintemp_c}</p>
+                    </div>
                 </li>
             ))}
         </ul>

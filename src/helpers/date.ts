@@ -1,3 +1,4 @@
+import { Month } from "@helpers/month.tsx"
 import { Week } from "@helpers/week.ts"
 
 export const getWeekDay = (str) => {
@@ -8,6 +9,11 @@ export const getWeekDay = (str) => {
 export const getDate = (str) => {
     const date = new Date(str)
     return `${date.getDate()}/${date.getMonth() + 1}`
+}
+
+export const getFullDate = (str) => {
+    const date = new Date(str)
+    return `${date.getDate()} ${Month[date.getMonth()]}`
 }
 
 export const getHour = (str) => {

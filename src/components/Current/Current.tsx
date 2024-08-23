@@ -5,7 +5,7 @@ import { getHour } from "@helpers/date.ts"
 import { Icons } from "@/helpers/icons.ts"
 
 export const Current = ({ current, hours, temp }) => {
-    const currentDate = new Date()
+    const currentDate = new Date(current.last_updated)
     const content = []
     for (
         let i = currentDate.getHours();
@@ -61,7 +61,7 @@ export const Current = ({ current, hours, temp }) => {
                 </p>
                 <p className="text-2xl text-center">{current.condition.text}</p>
             </div>
-            <ul className="scrollbar-hide flex mt-4 overflow-scroll rounded-2xl bg-black/[.09] dark:bg-white/[.09]">
+            <ul className="scrollbar-hide flex mt-4 overflow-x-scroll rounded-2xl bg-black/[.09] dark:bg-white/[.09]">
                 {content}
             </ul>
         </div>
