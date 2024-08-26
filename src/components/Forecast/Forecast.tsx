@@ -3,8 +3,13 @@ import "../../index.css"
 import { getDate, getWeekDay } from "@helpers/date.ts"
 import { Icons } from "@helpers/icons.ts"
 import { useNavigate } from "@tanstack/react-router"
+import { IForecastday } from "@types/index.d.ts"
 
-export const Forecast = ({ forecastdays }) => {
+interface IForecast {
+    forecastdays: IForecastday[]
+}
+
+export const Forecast = ({ forecastdays }: IForecast) => {
     const nav = useNavigate({ from: "/" })
     return (
         <ul className="scrollbar-hide flex overflow-x-auto rounded-2xl bg-black/[.09] dark:bg-white/[.09]">

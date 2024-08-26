@@ -29,7 +29,8 @@
             "@components/*": ["src/components/*"],
             "@helpers/*": ["src/helpers/*"],
             "@pages/*": ["src/pages/*"],
-            "@store/*": ["src/store/*"]
+            "@store/*": ["src/store/*"],
+            "@types/*": ["src/types/*"]
         }
     },
     "include": ["*.js", "**/*.ts", "**/*.tsx"],

@@ -1,10 +1,19 @@
 import "../../index.css"
 
 import { getHour } from "@helpers/date.ts"
+import { Icons } from "@helpers/icons.ts"
+import { IHour, IInfo } from "@types/index.d.ts"
 
-import { Icons } from "@/helpers/icons.ts"
+interface ICurrent {
+    current: IInfo
+    hours: IHour[]
+    temp: {
+        max: number
+        min: number
+    }
+}
 
-export const Current = ({ current, hours, temp }) => {
+export const Current = ({ current, hours, temp }: ICurrent) => {
     const currentDate = new Date(current.last_updated)
     const content = []
     for (

@@ -5,9 +5,10 @@ import { debounce } from "lodash"
 
 import * as api from "@api/requests/index.ts"
 import { SearchIcon } from "@assets/SearchIcon.tsx"
+import { ISearch } from "@types/index.d.ts"
 
 export const Search = () => {
-    const [arr, setArr] = useState([])
+    const [arr, setArr] = useState<ISearch[] | []>([])
 
     const searchCity = (value: string) => {
         if (value) {

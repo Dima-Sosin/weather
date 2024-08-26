@@ -5,9 +5,18 @@ import { Current } from "@components/Current/Current.tsx"
 import { Forecast } from "@components/Forecast/Forecast.tsx"
 import { Info } from "@components/Info/Info.tsx"
 import { useLoaderData } from "@tanstack/react-router"
+import { IForecastday, IInfo, ILocation } from "@types/index.d.ts"
+
+interface IData {
+    current: IInfo
+    forecast: {
+        forecastday: IForecastday[]
+    }
+    location: ILocation
+}
 
 export const MainPage = () => {
-    const data = useLoaderData({ from: "/" })
+    const data: IData = useLoaderData({ from: "/" })
 
     if (data.current.is_day === 0) {
         document.documentElement.classList.add("dark")
